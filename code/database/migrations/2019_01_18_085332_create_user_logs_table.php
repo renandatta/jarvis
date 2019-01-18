@@ -18,7 +18,7 @@ class CreateUserLogsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->date('date');
             $table->time('time');
-            $table->string('type');
+            $table->string('action');
             $table->text('log');
             $table->string('token');
             $table->timestamps();
