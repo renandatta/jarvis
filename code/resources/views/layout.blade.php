@@ -53,7 +53,7 @@
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                Admin Page
+                Jarvis
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -72,7 +72,6 @@
                             }
                             $list_menu = [
                                 ['url' => '/', 'caption' => 'Dashboard'],
-                                ['url' => 'user_level', 'caption' => 'User Level'],
                                 ['url' => '#', 'caption' => 'Data Master', 'sub_menu' => [
                                     ['url' => 'user_level', 'caption' => 'User Level'],
                                     ['url' => 'user', 'caption' => 'User'],
@@ -91,10 +90,10 @@
                             </li>
                             @else
                                 <li class="nav-item dropdown nav-item-user">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ $menu['caption'] }} <span class="caret"></span>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown-menu-right">
                                         @foreach($menu['sub_menu'] as $sub_menu)
                                         <a class="dropdown-item" href="{{ url($sub_menu['url']) }}">
                                             {{ $sub_menu['caption'] }}
@@ -105,10 +104,10 @@
                             @endif
                         @endforeach
                         <li class="nav-item dropdown nav-item-user">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ $user_active->fullname }} <span class="caret"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="{{ url('edit_profile') }}">
                                     Edit Profile
                                 </a>

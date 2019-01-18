@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
     {
         $user_level = \App\UserLevel::create([
             'user_level' => 'Super Admin',
-            'credentials' => 'Full Access'
+            'credentials' => 'full'
         ]);
         \App\User::create([
             'user_level_id' => $user_level->id,
