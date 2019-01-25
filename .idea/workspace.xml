@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbd5e704-d8ec-4121-9d28-80144d06d9aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/code/app/Http/Controllers/UserLevelController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/resources/views/team/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/resources/views/team/info.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/resources/views/user/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/resources/views/user/info.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/resources/views/user_level/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/resources/views/user_level/info.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/app/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/app/Team.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/database/seeds/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/resources/views/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="bbd5e704-d8ec-4121-9d28-80144d06d9aa" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -354,12 +340,12 @@
       <updated>1547801302786</updated>
       <workItem from="1547801304118" duration="152000" />
       <workItem from="1547801461053" duration="3349000" />
-      <workItem from="1547804971284" duration="3095000" />
+      <workItem from="1547804971284" duration="3152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6596000" />
+    <option name="totallyTimeSpent" value="6653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="740" extended-state="0" />
