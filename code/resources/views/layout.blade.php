@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title')Admin Page</title>
+    <title>@yield('title')Jarvis</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/select2/select2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/dropify/css/dropify.min.css') }}" rel="stylesheet" >
@@ -72,10 +72,14 @@
                             }
                             $list_menu = [
                                 ['url' => '/', 'caption' => 'Dashboard'],
-                                ['url' => '#', 'caption' => 'Data Master', 'sub_menu' => [
+                                ['url' => '#', 'caption' => 'User Management', 'sub_menu' => [
                                     ['url' => 'user_level', 'caption' => 'User Level'],
                                     ['url' => 'user', 'caption' => 'User'],
                                     ['url' => 'user_log', 'caption' => 'User Log']
+                                ]],
+                                ['url' => '#', 'caption' => 'Data Master', 'sub_menu' => [
+                                    ['url' => 'client_type', 'caption' => 'Client Type'],
+                                    ['url' => 'location', 'caption' => 'Location']
                                 ]],
                                 ['url' => 'team', 'caption' => 'Team'],
                                 ['url' => 'client', 'caption' => 'Client'],
@@ -91,7 +95,7 @@
                             @else
                                 <li class="nav-item dropdown nav-item-user">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ $menu['caption'] }} <span class="caret"></span>
+                                        {{ $menu['caption'] }}
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         @foreach($menu['sub_menu'] as $sub_menu)

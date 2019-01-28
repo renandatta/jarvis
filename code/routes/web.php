@@ -39,6 +39,18 @@ Route::group(['middleware' => ['check_login']],function(){
     Route::get('user_log/{user_id?}/{search?}','UserLogController@index');
     Route::post('user_log/search','UserLogController@search');
 
+    Route::get('client_type/{search?}','ClientTypeController@index');
+    Route::post('client_type/search','ClientTypeController@search');
+    Route::get('client_type/info/{id}','ClientTypeController@info');
+    Route::post('client_type/save/{id}','ClientTypeController@save');
+    Route::delete('client_type/delete/{id}','ClientTypeController@delete');
+
+    Route::get('location/{search?}','LocationController@index');
+    Route::post('location/search','LocationController@search');
+    Route::get('location/info/{id}','LocationController@info');
+    Route::post('location/save/{id}','LocationController@save');
+    Route::delete('location/delete/{id}','LocationController@delete');
+
     Route::get('team/{search?}','TeamController@index');
     Route::post('team/search','TeamController@search');
     Route::get('team/info/{id}','TeamController@info');

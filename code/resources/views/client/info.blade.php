@@ -16,12 +16,20 @@
                                         <input type="text" class="form-control" id="name" name="name" @if($id != 'new') value="{{ $field->name }}" @endif required autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <label for="type">{{ ucwords(str_replace("_"," ","type")) }}</label>
-                                        <input type="text" class="form-control" id="type" name="type" @if($id != 'new') value="{{ $field->type }}" @endif required>
+                                        <label for="client_type_id">{{ ucwords(str_replace("_"," ","client_type")) }}</label>
+                                        <select name="client_type_id" id="client_type_id" class="form-control select2">
+                                            @foreach($client_type as $value)
+                                                <option value="{{ $value->id }}" @if(($id != 'new') and ($field->client_type_id) == $value->id) selected @endif>{{ $value->type }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="location">{{ ucwords(str_replace("_"," ","location")) }}</label>
-                                        <input type="text" class="form-control" id="location" name="location" @if($id != 'new') value="{{ $field->location }}" @endif required>
+                                        <label for="location_id">{{ ucwords(str_replace("_"," ","location")) }}</label>
+                                        <select name="location_id" id="location_id" class="form-control select2">
+                                            @foreach($location as $value)
+                                                <option value="{{ $value->id }}" @if(($id != 'new') and ($field->location_id) == $value->id) selected @endif>{{ $value->location }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">

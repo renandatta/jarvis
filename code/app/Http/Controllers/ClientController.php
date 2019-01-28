@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use App\ClientType;
+use App\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -40,9 +42,13 @@ class ClientController extends Controller
         if($id != 'new'){
             $field = Client::find($id);
         }
+        $client_type = ClientType::orderBy('type','asc')->get();
+        $location = Location::orderBy('location','asc')->get();
         return view('client.info')
             ->with('id', $id)
-            ->with('field', $field);
+            ->with('field', $field)
+            ->with('client_type', $client_type)
+            ->with('location', $location);
     }
 
     public function save(Request $request, $id){

@@ -14,7 +14,7 @@
                 @endif
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ url('client/search') }}" method="post">
+                        <form action="{{ url('location/search') }}" method="post">
                             {{ csrf_field() }}
                             @php
                                 $keyword = "";
@@ -26,7 +26,7 @@
                             @endphp
                             <div class="row">
                                 <div class="col-md-2">
-                                    <a href="{{ url('client/info/new') }}" class="btn btn-block btn-primary">Add New</a>
+                                    <a href="{{ url('location/info/new') }}" class="btn btn-block btn-primary">Add New</a>
                                 </div>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control" name="keyword" placeholder="Keyword ..." value="{{ $keyword }}">
@@ -39,15 +39,13 @@
                     </div>
                 </div>
                 <div class="card mt-3">
-                    <div class="card-header">Client</div>
+                    <div class="card-header">Location</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                 <tr>
                                     <th width="8%">#</th>
-                                    <th>Name</th>
-                                    <th>Type</th>
                                     <th>Location</th>
                                     <th></th>
                                 </tr>
@@ -56,16 +54,14 @@
                                 @foreach($data as $key => $value)
                                     <tr>
                                         <td>{{ (($data->currentPage()-1)*10)+($key+1) }}</td>
-                                        <td>{{ $value->name }}</td>
-                                        <td>{{ $value->client_type->type }}</td>
-                                        <td>{{ $value->location->location }}</td>
+                                        <td>{{ $value->location }}</td>
                                         <td class="text-right">
                                             <div class="dropdown">
                                                 <a href="javascript:void(0)" class="dropdown-toggle text-black-50" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{{ url('client/info/'.$value->id) }}">Edit</a>
+                                                    <a class="dropdown-item" href="{{ url('location/info/'.$value->id) }}">Edit</a>
                                                     <a class="dropdown-item" href="javascript:void(0)" onclick="document.getElementById('hapusData{{ $value->id }}').submit();">Delete</a>
-                                                    <form action="{{ url('client/delete/'.$value->id) }}" method="post" id="hapusData{{ $value->id }}">
+                                                    <form action="{{ url('location/delete/'.$value->id) }}" method="post" id="hapusData{{ $value->id }}">
                                                         {{ csrf_field() }}
                                                         {{ method_field('delete') }}
                                                     </form>
