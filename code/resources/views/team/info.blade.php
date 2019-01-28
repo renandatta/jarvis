@@ -7,10 +7,10 @@
                 <div class="card mt-3">
                     <div class="card-header">@if($id == 'new') Add New Team @else Edit Team @endif</div>
                     <div class="card-body">
-                        <form action="{{ url('team/save/'.$id) }}" method="post">
+                        <form action="{{ url('team/save/'.$id) }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <div class="form-group">
                                         <label for="fullname">{{ ucwords(str_replace("_"," ","fullname")) }}</label>
                                         <input type="text" class="form-control" id="fullname" name="fullname" @if($id != 'new') value="{{ $field->fullname }}" @endif required autofocus>
@@ -19,11 +19,9 @@
                                         <label for="position">{{ ucwords(str_replace("_"," ","position")) }}</label>
                                         <input type="text" class="form-control" id="position" name="position" @if($id != 'new') value="{{ $field->position }}" @endif required>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email">{{ ucwords(str_replace("_"," ","email")) }}</label>
-                                        <input type="email" class="form-control" id="email" name="email" @if($id != 'new') value="{{ $field->email }}" @endif required>
+                                        <input type="email" class="form-control" id="email" name="email" @if($id != 'new') value="{{ $field->user->email }}" @endif required>
                                     </div>
                                     <div class="form-group">
                                         <label for="password">{{ ucwords(str_replace("_"," ","password")) }}</label>
@@ -34,9 +32,15 @@
                                         <label for="user_level_id">{{ ucwords(str_replace("_"," ","user_level")) }}</label>
                                         <select name="user_level_id" id="user_level_id" class="form-control select2">
                                             @foreach($user_level as $value)
-                                                <option value="{{ $value->id }}" @if(($id != 'new') and ($field->user_level_id) == $value->id) selected @endif>{{ $value->user_level }}</option>
+                                                <option value="{{ $value->id }}" @if(($id != 'new') and ($field->user->user_level_id) == $value->id) selected @endif>{{ $value->user_level }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="photo">{{ ucwords(str_replace("_"," ","photo")) }}</label>
+                                        <input type="file" name="photo" id="photo" class="dropify" data-height="350" data-allowed-file-extensions="jpeg jpg png" @if(($id != 'new') and ($field->photo != "")) data-default-file="{{ asset('storage/photo/'.$field->photo) }}" @endif>
                                     </div>
                                 </div>
                             </div>

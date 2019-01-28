@@ -19,7 +19,7 @@ class CheckLogin
         if(Session::has('user_active')){
             return $next($request);
         }else{
-            return redirect('admin/login');
+            return redirect('login');
         }
     }
 }

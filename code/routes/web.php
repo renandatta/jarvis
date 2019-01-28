@@ -36,6 +36,9 @@ Route::group(['middleware' => ['check_login']],function(){
     Route::post('user/save/{id}','UserController@save');
     Route::delete('user/delete/{id}','UserController@delete');
 
+    Route::get('user_log/{user_id?}/{search?}','UserLogController@index');
+    Route::post('user_log/search','UserLogController@search');
+
     Route::get('team/{search?}','TeamController@index');
     Route::post('team/search','TeamController@search');
     Route::get('team/info/{id}','TeamController@info');
@@ -47,4 +50,13 @@ Route::group(['middleware' => ['check_login']],function(){
     Route::get('client/info/{id}','ClientController@info');
     Route::post('client/save/{id}','ClientController@save');
     Route::delete('client/delete/{id}','ClientController@delete');
+
+    Route::get('project/{search?}','ProjectController@index');
+    Route::post('project/search','ProjectController@search');
+    Route::get('project/attachment/{id}','ProjectController@attachment');
+    Route::get('project/info/{id}','ProjectController@info');
+    Route::post('project/save/{id}','ProjectController@save');
+    Route::post('project/attachment/{id}','ProjectController@save_attachment');
+    Route::delete('project/delete/{id}','ProjectController@delete');
+    Route::delete('project/attachment/{id}','ProjectController@delete_attachment');
 });

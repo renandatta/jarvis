@@ -79,7 +79,7 @@
                                 ]],
                                 ['url' => 'team', 'caption' => 'Team'],
                                 ['url' => 'client', 'caption' => 'Client'],
-                                ['url' => 'project', 'caption' => 'Feed'],
+                                ['url' => 'project', 'caption' => 'Project'],
                             ];
                             $user_active = Session::get('user_active');
                         @endphp
@@ -118,6 +118,10 @@
                                     @csrf
                                 </form>
                             </div>
+                        </li>
+                    @else
+                        <li class="nav-item>
+                            <a class="nav-link" href="{{ url('login') }}">Login</a>
                         </li>
                     @endif
                 </ul>
@@ -167,6 +171,13 @@
             down: 'fe fe-arrow-down'
         }
     });
+    $('.table-responsive').on('show.bs.dropdown', function () {
+        $('.table-responsive').css( "overflow", "inherit" );
+    });
+
+    $('.table-responsive').on('hide.bs.dropdown', function () {
+        $('.table-responsive').css( "overflow", "auto" );
+    })
 </script>
 @yield('jspage')
 </body>

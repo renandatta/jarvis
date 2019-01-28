@@ -7,6 +7,7 @@ use App\User;
 use App\UserLevel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
@@ -40,6 +41,7 @@ class TeamController extends Controller
         $field = [];
         if($id != 'new'){
             $field = Team::find($id);
+            $field->user = User::find($field->user_id);
         }
         $user_level = UserLevel::orderBy('user_level')->get();
         return view('team.info')
@@ -58,12 +60,21 @@ class TeamController extends Controller
             $field = Team::find($id);
             $field->update($request->all());
 
-            $user = Team::find($field->user_id);
+            $user = User::find($field->user_id);
             $user->update($request->all());
             $action = "updated";
         }
         if($request->input('password') != ''){
             $user->password = encrypt($request->input('password'));
+            $field->save();
+        }
+        if($request->hasFile('photo')){
+            if(($id != 'new') and (Storage::exists('photo/'.$field->image))){
+                unlink(storage_path('app/photo/'.$field->image));
+            }
+            $filename = str_random(60).'.'.$request->file('photo')->extension();
+            Storage::putFileAs('photo',$request->file('photo'),$filename);
+            $field->photo = $filename;
             $field->save();
         }
         $ioController = new IoController();
