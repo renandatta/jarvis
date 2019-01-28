@@ -120,7 +120,7 @@
                             </div>
                         </li>
                     @else
-                        <li class="nav-item>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ url('login') }}">Login</a>
                         </li>
                     @endif
